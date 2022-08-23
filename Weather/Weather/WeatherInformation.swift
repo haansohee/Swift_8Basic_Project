@@ -13,7 +13,7 @@ struct WeatherInformation: Codable {  // Codable 프로토콜은 자신을 변�
     let temp: Temp
     let name: String  // 도시 이름
     
-    enum CodingKeys: String, CodingKeys {
+    enum CodingKeys: String, CodingKey {
         case weather
         case temp = "main"
         case name
@@ -33,7 +33,7 @@ struct Temp: Codable {
     let minTemp: Double
     let maxTemp: Double
     
-    enum CodingKeys: String, CodingKeys {
+    enum CodingKeys: String, CodingKey {
         case temp
         case feelsLike = "feels_like"
         case minTemp = "temp_min"
