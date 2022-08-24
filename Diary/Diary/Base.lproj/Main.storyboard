@@ -179,6 +179,10 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="180" height="200"/>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="0lD-8P-16D" id="MaW-Tm-MIi"/>
+                                            <outlet property="titleLabel" destination="jDS-an-aWU" id="Jw0-hq-7rN"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -378,7 +382,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="일기 작성" id="NI5-8E-Aeu">
-                        <barButtonItem key="rightBarButtonItem" title="등록" id="Tc8-eu-f2x"/>
+                        <barButtonItem key="rightBarButtonItem" title="등록" id="Tc8-eu-f2x">
+                            <connections>
+                                <action selector="tapConfirmButton:" destination="Zdk-2f-U3f" id="6d8-tr-0jf"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="confirmButton" destination="Tc8-eu-f2x" id="I2Q-eb-pVR"/>
