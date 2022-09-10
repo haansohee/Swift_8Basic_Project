@@ -83,6 +83,6 @@ LED 전광판에 표시하고 싶은 문구와 배경 색상을 설정하여 화
 
 ## 일곱 번째 프로젝트: 일기 앱 (Diary)
 
-<a href = "https://velog.io/@haansohee/07.-일기-앱> 🔍 프로젝트에 관한 설명 및 실행 화면 </a>
+<a href = "https://velog.io/@haansohee/07.-일기-앱"> 🔍 프로젝트에 관한 설명 및 실행 화면 </a>
 
 
