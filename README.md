@@ -80,9 +80,20 @@ LED 전광판에 표시하고 싶은 문구와 배경 색상을 설정하여 화
 
 <a href = "https://velog.io/@haansohee/06.-날씨-앱"> 🔍 프로젝트에 관한 설명 및 실행 화면</a>
 
+<br>
 
 ## 일곱 번째 프로젝트: 일기 앱 (Diary)
 
 <a href = "https://velog.io/@haansohee/07.-일기-앱"> 🔍 프로젝트에 관한 설명 및 실행 화면 </a>
+
+<br>
+
+## 여덟 번째 프로젝트: 코로나 현황판 앱 (Corona19_Bye)
+<b> 실행 결과 화면 </b>
+<br>
+<img width="564" alt="스크린샷 2023-05-05 오전 1 28 30" src="https://user-images.githubusercontent.com/90755590/236266897-d6ed9954-b189-4ad0-b102-76a7675f1d39.png">
+
+
+
 
 
