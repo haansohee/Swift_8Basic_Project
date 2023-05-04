@@ -42,32 +42,31 @@ class ViewController: UIViewController {
     
     func showAlert(messgae: String) {
         let alert = UIAlertController(title: "에러", message: messgae, preferredStyle: .alert)
-        alert.addAction(title: "확인", style: .default, handler: nil)
-        self.presentationController(alert, animated: true, completion: nil)
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     func getCurrentWeather(cityName: String) {
-        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(cityName)&appid=87a4207f74d20ed1ebfad26f38b7f891") else { return }
-        
+        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(cityName)&appid=bd4f07b96b68f8e5a84c55e4effdded8") else { return }
         let session = URLSession(configuration: .default)
         session.dataTask(with: url) { [weak self] data, response, error in
-            let successRange = (200..<300)
-            if let response = response as? HTTPURLResponse, successRange.contains(response.statusCode) {
-                guard let data = data, error == nil else { return }
-                let decoder = JSONDecoder()
-                guard let weatherInformation = try? decoder.decode(WeatherInformation.self, from: data) else { return }
-                DispatchQueue.main.async {
-                    self?.weatherStackView.isHidden = false
-                    self?.configureView(weatherInformation: weatherInformation)
-                
-                    }
-                } else {
-                guard let errorMessage = try? decoder.decode(ErrorMessage.self, from: data) else { return }
-                    DispatchQueue.main.async {
-                        self?.showAlert(messgae: errorMessage.message)
-                    }
-                }
-            }.resume()
-        }
+          let successRange = (200..<300)
+          guard let data = data, error == nil else { return }
+          let decoder = JSONDecoder()
+          if let response = response as? HTTPURLResponse, successRange.contains(response.statusCode) {
+            guard let weatherInformation = try? decoder.decode(WeatherInformation.self, from: data) else { return }
+            DispatchQueue.main.async {
+              self?.weatherStackView.isHidden = false
+              self?.configureView(weatherInformation: weatherInformation)
+            }
+          } else {
+            guard let errorMesaage = try? decoder.decode(ErrorMessage.self, from: data) else { return }
+            DispatchQueue.main.async {
+                self?.showAlert(messgae: errorMesaage.message)
+            }
+          }
+
+        }.resume()
+    }
 }
 
