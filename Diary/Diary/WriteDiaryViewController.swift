@@ -90,7 +90,16 @@ class WriteDiaryViewController: UIViewController {
         guard let contents = self.contentsTextView.text else { return }
         guard let date = self.diaryDate else { return }
         let diary = Diary(title: title, contents: contents, date: date, isStar: false)
-        self.delegate?.didSelectRegister(diary: diary)
+        
+        switch self.diaryEditroMode {
+        case .new:
+            self.delegate?.didSelectRegister(diary: diary)
+            
+        case let .edit(indexPath, _):
+            NotificationCenter.default.post(name: NSNotification.Name("editDary"),
+                                            object: diary,  // 수정된 내용의 diary
+                                            userInfo: ["indexPath.row": indexPath.row])
+        }
         self.navigationController?.popViewController(animated: true)
     }
     
